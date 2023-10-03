@@ -21,15 +21,13 @@ def commit_and_push():
         file.write(f"\nData de atualização: {date_string}\n")
 
     print("Arquivo atualizado com sucesso!")
+    
     # Adiciona as mudanças ao Git e faz commit
     os.system("git add .")
-    print('>>>>>> hello')
     os.system(f'git commit -m "Adiciona a data de atualização {date_string}"')
 
-    print('>>>>>>> world')
-
     # Faz push das mudanças para o repositório remoto
-    subprocess.run("git push origin main")
+    os.system("git push origin main")
     print("Mudanças enviadas ao github com sucesso!")
 
 # Agenda a execução do código a cada 1 minutos
