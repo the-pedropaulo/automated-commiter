@@ -38,7 +38,7 @@ counter = 0
 
 while True:
     print('Loading...')
-    word = input("Insira a palavra secreta: ").lower()
+    word = "python"
     counter = counter + 1
 
     if word == secret_word:
