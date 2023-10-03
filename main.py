@@ -21,7 +21,7 @@ def commit_and_push():
         file.write(f"\nData de atualização: {date_string}\n")
 
     print("Arquivo atualizado com sucesso!")
-    
+
     # Adiciona as mudanças ao Git e faz commit
     os.system("git add .")
     os.system(f'git commit -m "Adiciona a data de atualização {date_string}"')
@@ -30,10 +30,21 @@ def commit_and_push():
     os.system("git push origin main")
     print("Mudanças enviadas ao github com sucesso!")
 
-# Agenda a execução do código a cada 1 minutos
+# Agenda a execução do código a cada 1 dia
 schedule.every(10).seconds.do(commit_and_push)
+
+secret_word = "python"
+counter = 0
 
 while True:
     print('Loading...')
-    schedule.run_pending()
-    time.sleep(1)
+    word = input("Insira a palavra secreta: ").lower()
+    counter = counter + 1
+
+    if word == secret_word:
+        print("entrou")
+        schedule.run_pending()
+        time.sleep(1)
+    if word != secret_word and counter > 7: 
+        print("n entrou")
+        break
