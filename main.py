@@ -10,24 +10,23 @@ def commit_and_push():
     # Define o caminho para o arquivo main.txt
     path = "/home/the-pedrosantana/pessoal/automated-commiter/main.txt"
 
-    print("Print 1")
     # Pega a data e hora atuais
     now = datetime.datetime.now()
 
-    print("Print 2")
     # Cria a string com a data e hora no formato desejado
     date_string = now.strftime("%Y-%m-%d %H:%M:%S")
 
-    print("Print 3")
     # Adiciona a data ao arquivo main.txt
     with open(path, "w") as file:
-        print("Print 4")
         file.write(f"\nData de atualização: {date_string}\n")
 
     print("Arquivo atualizado com sucesso!")
     # Adiciona as mudanças ao Git e faz commit
     os.system("git add .")
+    print('>>>>>> hello')
     os.system(f'git commit -m "Adiciona a data de atualização {date_string}"')
+
+    print('>>>>>>> world')
 
     # Faz push das mudanças para o repositório remoto
     subprocess.run("git push origin main")
