@@ -1,6 +1,5 @@
 import datetime
 import os
-import subprocess
 import schedule
 import time
 
@@ -33,18 +32,10 @@ def commit_and_push():
 # Agenda a execução do código a cada 1 dia
 schedule.every(10).seconds.do(commit_and_push)
 
-secret_word = "python"
-counter = 0
-
 while True:
     print('Loading...')
-    word = "python"
-    counter = counter + 1
 
-    if word == secret_word:
+    if 1 == 1:
         print("entrou")
         schedule.run_pending()
         time.sleep(1)
-    if word != secret_word and counter > 7: 
-        print("n entrou")
-        break
