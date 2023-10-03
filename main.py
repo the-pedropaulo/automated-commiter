@@ -30,12 +30,12 @@ def commit_and_push():
     print("Mudanças enviadas ao github com sucesso!")
 
 # Agenda a execução do código a cada 1 dia
-schedule.every(10).seconds.do(commit_and_push)
+schedule.every(1).minutes.do(commit_and_push)
 
+counter = 0
 while True:
-    print('Loading...')
-
+    print(f'Loading... {counter}')
+    counter += 1
     if 1 == 1:
-        print("entrou")
         schedule.run_pending()
         time.sleep(1)
